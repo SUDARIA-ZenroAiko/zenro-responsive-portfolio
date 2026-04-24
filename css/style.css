@@ -1,0 +1,612 @@
+@font-face {
+  font-family: 'StardewValley';
+  src: url('../fonts/Stardew_Valley.ttf') format('truetype');
+}
+
+:root {
+  --night-sky: #1a2744;
+  --night-deep: #0f1a30;
+  --panel-white: #ffd789;
+  --panel-light: #ffbf64;
+  --blue-mid: #e27b3f;
+  --blue-accent: #e27b3f;
+  --text-dark: #c50e0e;
+  --text-light: #ce5353;
+  --text-muted: #ce5353;
+
+  --font-stardew: 'StardewValley', Georgia, serif;
+  --font-ui: 'Stardew_Valley', Stardew_Valley;
+  font-family: var(--font-stardew);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url('./background.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: var(--font-ui);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+/* CLOUDS */
+.clouds-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 50px;
+  opacity: 0.85;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.cloud-1 {
+  width: 200px;
+  height: 50px;
+  top: 15%;
+  animation: floatCloud 28s linear infinite;
+}
+
+.cloud-1::before {
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  left: 30px;
+}
+
+.cloud-1::after {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 90px;
+}
+
+.cloud-2 {
+  width: 160px;
+  height: 45px;
+  top: 35%;
+  animation: floatCloud 38s linear infinite;
+  animation-delay: -10s;
+}
+
+.cloud-2::before {
+  width: 70px;
+  height: 70px;
+  top: -35px;
+  left: 20px;
+}
+
+.cloud-2::after {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 75px;
+}
+
+.cloud-3 {
+  width: 240px;
+  height: 55px;
+  top: 55%;
+  animation: floatCloud 22s linear infinite;
+  animation-delay: -5s;
+}
+
+.cloud-3::before {
+  width: 90px;
+  height: 90px;
+  top: -45px;
+  left: 40px;
+}
+
+.cloud-3::after {
+  width: 70px;
+  height: 70px;
+  top: -35px;
+  left: 110px;
+}
+
+.cloud-4 {
+  width: 180px;
+  height: 48px;
+  top: 10%;
+  animation: floatCloud 32s linear infinite;
+  animation-delay: -18s;
+}
+
+.cloud-4::before {
+  width: 75px;
+  height: 75px;
+  top: -38px;
+  left: 25px;
+}
+
+.cloud-4::after {
+  width: 55px;
+  height: 55px;
+  top: -28px;
+  left: 85px;
+}
+
+.cloud-5 {
+  width: 140px;
+  height: 40px;
+  top: 70%;
+  animation: floatCloud 44s linear infinite;
+  animation-delay: -25s;
+}
+
+.cloud-5::before {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 20px;
+}
+
+.cloud-5::after {
+  width: 45px;
+  height: 45px;
+  top: -22px;
+  left: 65px;
+}
+
+@keyframes floatCloud {
+  from {
+    transform: translateX(110vw);
+  }
+
+  to {
+    transform: translateX(-350px);
+  }
+}
+
+/* ALL PANELS ABOVE CLOUDS */
+header,
+nav,
+main,
+aside,
+footer,
+#back-btn {
+  position: relative;
+  z-index: 1;
+}
+
+/* HOME STATE */
+body.is-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+body.is-home main {
+  display: none !important;
+}
+
+body.is-home aside {
+  display: none !important;
+}
+
+body.is-home footer {
+  display: none !important;
+}
+
+body.is-home #back-btn {
+  display: none !important;
+}
+
+/* VIEWING STATE */
+body.is-viewing {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "main   aside"
+    "footer footer";
+  gap: 16px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+body.is-viewing nav {
+  display: none;
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+}
+
+aside {
+  grid-area: aside;
+}
+
+footer {
+  grid-area: footer;
+}
+
+/* SLIDE IN */
+@keyframes slideIn {
+  from {
+    transform: translateX(60px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+body.is-viewing main {
+  animation: slideIn 0.3s ease forwards;
+}
+
+body.is-viewing aside {
+  animation: slideIn 0.3s ease 0.08s both;
+}
+
+body.is-viewing footer {
+  animation: slideIn 0.3s ease 0.14s both;
+}
+
+main section {
+  display: none;
+}
+
+main section.active {
+  display: block;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 50px 20px;
+  width: 100%;
+  max-width: 680px;
+}
+
+body.is-viewing header {
+  max-width: none;
+  padding: 22px 20px;
+}
+
+header h1 {
+  font-family: var(--font-stardew);
+  font-size: 3.8rem;
+  color: #ce5353;
+}
+
+body.is-viewing header h1 {
+  font-size: 2rem;
+}
+
+/* NAV */
+nav {
+  width: 100%;
+  max-width: 680px;
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+nav li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+nav a {
+  display: block;
+  background-color: var(--panel-light);
+  color: var(--night-deep);
+  text-decoration: none;
+  font-family: var(--font-stardew);
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 26px 16px;
+  border-radius: 10px;
+  border: 2px solid #e27b3f;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+nav a:hover {
+  background-color: var(--blue-mid);
+  color: var(--text-light);
+  transform: scale(1.05);
+  box-shadow: 0 6px 0 var(--night-deep);
+}
+
+nav a:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 0 var(--night-deep);
+}
+
+/* ---- WOODEN FRAMES FOR ALL PANELS ---- */
+header,
+nav,
+main,
+aside,
+footer {
+  position: relative;
+  border: 12px solid;
+  border-image: linear-gradient(135deg, #5a3a1a 0%, #8B5A3C 25%, #6B4423 50%, #8B5A3C 75%, #5a3a1a 100%) 12;
+  border-radius: 0;
+  background-color: var(--panel-white);
+  box-shadow:
+    inset 0 0 0 3px #3d2817,
+    inset 2px 2px 0px rgba(0, 0, 0, 0.3),
+    inset -2px -2px 0px rgba(255, 255, 255, 0.2),
+    0 12px 30px rgba(0, 0, 0, 0.4);
+  background-image:
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(139, 90, 60, 0.03) 2px, rgba(139, 90, 60, 0.03) 4px);
+}
+
+/* Wooden corner pieces for all panels */
+header::before,
+header::after,
+nav::before,
+nav::after,
+main::before,
+main::after,
+aside::before,
+aside::after,
+footer::before,
+footer::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #6B4423 0%, #8B5A3C 50%, #5a3a1a 100%);
+  border: 2px solid #3d2817;
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.2), inset -1px -1px 0px rgba(0, 0, 0, 0.3);
+}
+
+header::before,
+nav::before,
+main::before,
+aside::before,
+footer::before {
+  top: -12px;
+  left: -12px;
+  border-radius: 2px;
+}
+
+header::after,
+nav::after,
+main::after,
+aside::after,
+footer::after {
+  top: -12px;
+  right: -12px;
+  border-radius: 2px;
+}
+
+/* BACK BUTTON */
+#back-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--panel-white);
+  color: var(--night-deep);
+  font-family: var(--font-stardew);
+  font-size: 1rem;
+  padding: 12px 26px;
+  border: 2px solid #e27b3f;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 0 var(--night-deep);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+#back-btn:hover {
+  background-color: var(--blue-mid);
+  color: var(--text-light);
+  transform: scale(1.05);
+}
+
+#back-btn:active {
+  transform: scale(0.96);
+}
+
+/* MAIN */
+main {
+  padding: 30px;
+}
+
+main h2 {
+  font-family: var(--font-stardew);
+  font-size: 1.9rem;
+  color: var(--night-deep);
+  margin-bottom: 14px;
+  border-bottom: 3px solid var(--blue-accent);
+  padding-bottom: 6px;
+}
+
+main p {
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.project-card {
+  background-color: var(--panel-light);
+  border: 2px solid #e27b3f;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.project-card:hover {
+  border-color: var(--blue-accent);
+  transform: translateY(-3px);
+}
+
+.project-number {
+  font-family: var(--font-stardew);
+  font-size: 2rem;
+  color: var(--blue-accent);
+}
+
+.project-card h3 {
+  color: var(--night-deep);
+  margin-bottom: 6px;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.project-link {
+  font-weight: bold;
+  color: var(--blue-mid);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.project-link:hover {
+  color: var(--blue-accent);
+}
+
+.post-card {
+  background-color: var(--panel-light);
+  border: 2px solid #e27b3f;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.post-card h3 {
+  color: var(--night-deep);
+  margin-bottom: 4px;
+}
+
+.post-card .meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.post-card ul {
+  padding-left: 18px;
+  margin-top: 10px;
+}
+
+.post-card ul li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+/* ASIDE */
+aside {
+  padding: 20px;
+}
+
+.widget {
+  margin-bottom: 24px;
+}
+
+.widget h3 {
+  font-family: var(--font-stardew);
+  color: var(--night-deep);
+  margin-bottom: 10px;
+  border-bottom: 2px solid #e27b3f;
+  padding-bottom: 4px;
+}
+
+.widget ul {
+  list-style: none;
+}
+
+.widget ul li {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.widget ul a {
+  color: var(--blue-mid);
+  text-decoration: none;
+}
+
+.widget ul a:hover {
+  color: var(--blue-accent);
+}
+
+/* CONTACT WIDGET */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.contact-item a {
+  color: var(--blue-mid);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.contact-item a:hover {
+  color: var(--blue-accent);
+}
+
+/* FOOTER */
+footer {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 16px;
+  font-size: 0.88rem;
+}
+
+h1,
+h2,
+h3 {
+  color: #ce5353;
+}
+
+p,
+li {
+  font-family: var(--font-stardew);
+}
