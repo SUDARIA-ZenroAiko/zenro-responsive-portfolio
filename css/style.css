@@ -592,6 +592,25 @@ aside {
   color: var(--blue-accent);
 }
 
+.contact-label {
+  display: block;
+  font-family: var(--font-stardew);
+  color: var(--night-deep);
+  font-size: 0.85rem;
+  margin-bottom: 2px;
+}
+
+.widget ul li a {
+  color: var(--blue-mid);
+  text-decoration: none;
+  font-size: 0.85rem;
+  word-break: break-all;
+}
+
+.widget ul li a:hover {
+  color: var(--text-light);
+}
+
 /* FOOTER */
 footer {
   color: var(--text-muted);
