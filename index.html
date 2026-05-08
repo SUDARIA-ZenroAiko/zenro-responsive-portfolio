@@ -2,28 +2,25 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zenro's World</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500&display=swap"
-    rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rozen's Valley</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
-  <div class="clouds-wrapper">
-    <div class="cloud cloud-1"></div>
-    <div class="cloud cloud-2"></div>
-    <div class="cloud cloud-3"></div>
-    <div class="cloud cloud-4"></div>
-    <div class="cloud cloud-5"></div>
+  <div class="clouds wrapper">
+    <div class="clouds__cloud clouds__cloud--1"></div>
+    <div class="clouds__cloud clouds__cloud--2"></div>
+    <div class="clouds__cloud clouds__cloud--3"></div>
+    <div class="clouds__cloud clouds__cloud--4"></div>
+    <div class="clouds__cloud clouds__cloud--5"></div>
+    <div class="clouds__cloud clouds__cloud--6"></div>
   </div>
 
   <header>
-    <h1>Zenro's Valley</h1>
+    <h1> Rozen's Valley</h1>
   </header>
 
   <nav id="main-nav">
@@ -39,13 +36,13 @@
     <section id="about">
       <h2>About Me</h2>
       <p>
-        Hey! I'm Zen, my gamer name is zenro — a 2nd-year IT student navigating deadlines,
-        late-night study sessions, and way too much instant ramen. This is my little corner
-        of the internet where I document the chaos and beauty of student life.
+        Hey! I'm Rozen, my gamer name is Zenro — a 2nd-year IT student navigating deadlines,
+        late-night study sessions, i am in a way to become a full stack developer. I have a passion for coding, games,
+        and all things tech.
       </p>
       <p>
-        When I'm not debugging code at 2am, I'm rewatching anime or convincing myself
-        that one more episode before bed is totally fine.
+        Whenever i'm not coding, I'm either gaming, binge-watching anime, or trying to find new music to obsess over.
+        I believe in the power of caffeine and that one more episode before bed is totally fine.
       </p>
     </section>
 
@@ -56,22 +53,21 @@
           <div class="project-number">01</div>
           <h3>Student ID / Library Card</h3>
           <p class="meta">Activity 1</p>
-          <p>A simple digitally designed student ID or library card.</p>
-          <a href="Projects/StudentID.html" target="_blank" class="project-link">View Project →</a>
+          <a href="https://codepen.io/NEIL-NIO-ROZEN-NAVALES-SUDARIA/pen/XJKZwad" target="_blank"
+            class="project-link">View Project →</a>
         </article>
 
         <article class="project-card">
           <div class="project-number">02</div>
           <h3>Class Schedule Table</h3>
           <p class="meta">Activity 2</p>
-          <p>A simple structured weekly class schedule.</p>
-          <a href="Projects/ClassSchedule.html" target="_blank" class="project-link">View Project →</a>
+          <a href="https://codepen.io/NEIL-NIO-ROZEN-NAVALES-SUDARIA/pen/RNRYYje" target="_blank"
+            class="project-link">View Project →</a>
         </article>
 
         <article class="project-card">
           <div class="project-number">03</div>
-          <h3>Valentine Card</h3>
-          <p>A creative, interactive Valentine's Day card.</p>
+          <h3>Valentine's Card</h3>
           <a href="https://codepen.io/NEIL-NIO-ROZEN-NAVALES-SUDARIA/pen/WbxmaeK" target="_blank"
             class="project-link">View Project →</a>
         </article>
@@ -92,12 +88,13 @@
       </article>
       <article class="post-card">
         <p class="meta">Friday, Feb 20, 2025</p>
-        <p>There's a small café tucked behind the library that almost nobody knows about. Big windows, lo-fi music, and
-          the barista never judges you for sitting there four hours.</p>
+        <p>I finally got over into hardmode in terraria in expert mode yes! But the monsters seems too strong?
+          I need to farm more and get better gear. I also started my python activities, it's pretty tiring so far.
+        </p>
         <ul>
-          <li>Finished two chapters of readings</li>
-          <li>Started my essay outline</li>
-          <li>Ordered the matcha latte (10/10)</li>
+          <li>Finished 4 python activities</li>
+          <li>Started my final's exam study plan</li>
+          <li>Opening on wiki terraria 24/7</li>
         </ul>
       </article>
     </section>
@@ -105,38 +102,27 @@
   </main>
 
   <aside>
-    <section class="widget" id="contact">
-      <h3>Contact</h3>
-      <ul>
-        <li>
-          <span class="contact-label">💼 LinkedIn</span>
-          <a href="https://www.linkedin.com/in/neil-nino-rozen-sudaria-913403399/"
-            target="_blank">linkedin.com/in/neil-nino-rozen-sudaria</a>
-        </li>
-        <li>
-          <span class="contact-label">🐙 GitHub</span>
-          <a href="https://github.com/ZenroAiko" target="_blank">github.com/ZenroAiko</a>
-        </li>
-      </ul>
-    </section>
 
     <section class="widget" id="contact">
-      <h3>Quick Facts</h3>
-      <ul>
-        <li>📍 Gran Europa, La Mirande</li>
-        <li>📖 Major: Information Technology</li>
-        <li>☕ Coffee: Black, matcha always</li>
-        <li>🌙 Sleep schedule: Questionable</li>
-      </ul>
+      <h3>Contact</h3>
+      <div class="contact-row">
+        <div class="contact-item">
+          <span>💼</span>
+          <a href="https://www.linkedin.com/in/neil-nino-rozen-sudaria-913403399/" target="_blank">LinkedIn</a>
+        </div>
+        <div class="contact-item">
+          <span>🐙</span>
+          <a href="https://github.com/ZenroAiko" target="_blank">GitHub</a>
+        </div>
+      </div>
     </section>
 
     <section class="widget">
       <h3>This Month's Goals</h3>
       <ul>
-        <li>Finish 1 book for fun</li>
+        <li>Finish 1 book </li>
         <li>Finish my projects</li>
         <li>Run more miles</li>
-        <li>Call mom more often</li>
       </ul>
     </section>
 
@@ -149,6 +135,9 @@
 
   <script src="js/script.js"></script>
 
+</body>
+
+</html>
 </body>
 
 </html>
